@@ -832,10 +832,9 @@ function initializeDispatcher() {
 	});
 	dispatcher.on('conf.save.enable_offers', (enableOffers) => {
 		button.update();
+		log('conf.save.enable_offers', enableOffers);
 		if (!IS_EDGE && !IS_CLIQZ) {
-			if (enableOffers) {
-				setCliqzModuleEnabled(offers, enableOffers);
-			}
+			setCliqzModuleEnabled(offers, enableOffers);
 		} else {
 			setCliqzModuleEnabled(offers, false);
 			registerWithOffers(offers, false);
